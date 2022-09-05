@@ -1,5 +1,12 @@
 venv/
 .idea/
 __pycache__/
+
+build/
+dist/
+
+*.manifest
+*.spec
+
 local/
 output/
