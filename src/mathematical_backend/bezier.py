@@ -36,12 +36,8 @@ def ease(start, end, current_time, total_time):
 
 def ease_in(start, end, current_time, total_time):
     # Values taken from https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function#values
-    middle1 = math.sqrt(
-        (0.25 ** 2) + (0.1 ** 2)
-    )
-    middle2 = math.sqrt(
-        (0.25 ** 2) + 1
-    )
+    middle1 = 0.42
+    middle2 = math.sqrt(2)
 
     interpolated_value = cubic_interpolate(start, end, middle1, middle2, current_time, total_time)
     return interpolated_value
@@ -49,11 +45,9 @@ def ease_in(start, end, current_time, total_time):
 
 def ease_out(start, end, current_time, total_time):
     # Values taken from https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function#values
-    middle1 = math.sqrt(
-        (0.25 ** 2) + (0.1 ** 2)
-    )
+    middle1 = 0
     middle2 = math.sqrt(
-        (0.25 ** 2) + 1
+        (0.58 ** 2) + 1
     )
 
     interpolated_value = cubic_interpolate(start, end, middle1, middle2, current_time, total_time)
