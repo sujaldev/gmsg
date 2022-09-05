@@ -23,18 +23,24 @@ def get_args():
 
     args.input = [(str(args.input).removesuffix("/") + "/" + filename) for filename in os.listdir(str(args.input))]
 
-    if type(args.fps) != int:
+    try:
+        args.fps = int(args.fps)
+    except ValueError:
         raise Exception("FPS must be an integer")
 
-    if type(args.delay) not in [int, float]:
-        raise Exception("Delay must be an integer or a float")
-    else:
+    try:
         args.delay = float(args.delay)
+    except ValueError:
+        raise Exception("Delay must be an integer or a float")
 
-    if type(args.transition_duration) != int:
+    try:
+        args.transition_duration = int(args.transition_duration)
+    except ValueError:
         raise Exception("Transition Duration must be an integer")
 
-    if type(args.padding) != int:
+    try:
+        args.padding = int(args.padding)
+    except ValueError:
         raise Exception("Padding must be an integer")
 
     if args.bezier_curve not in ["ease", "ease-in", "ease-out"]:
