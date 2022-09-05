@@ -32,12 +32,10 @@ def calculate_canvas_size(images: List[Image.Image]) -> Tuple[int, int]:
 def resize_image_for_canvas(image: Image.Image, canvas_width: int, canvas_height: int):
     # To fit image inside canvas we can either match the new image's width to the canvas's width or the height,
     # but to figure out which (width or height) we can use some trigonometry and compare the ratio of
-    # width and height (in any order, but same order for both) of the canvas and the image to each other and if the
-    # canvas's ratio is higher, then we must set new image's width equal to canvas's width and scale down height
-    # respecting the original aspect ratio and if image's ratio is higher we scale down width and set height equal.
+    # width and height of the canvas and the image to each other and if the canvas's ratio is higher,
+    # then we must set new image's width equal to canvas's width and scale down height respecting the original
+    # aspect ratio and if image's ratio is higher we scale down width and set height equal.
 
-    # I refuse to believe that we live in a universe where there is no better way to calculate this. Send a PR if you
-    # know how to do it better please.
     canvas_ratio = canvas_height / canvas_width
     image_ratio = image.height / image.width
     if canvas_ratio > image_ratio:
