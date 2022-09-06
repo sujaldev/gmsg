@@ -8,7 +8,7 @@ canvas_width, canvas_height = calculate_canvas_size(images)
 images = [
     resize_image_for_canvas(image, canvas_width, canvas_height) for image in images
 ]
-images += [images[0]]
+images += [images[0]] # so that it cycles back to the original image, creating an infinite loop
 args.canvas_width = canvas_width
 args.canvas_height = canvas_width
 
